@@ -5,29 +5,40 @@ import { Link } from "react-router-dom";
 class Header extends Component {
   state = {
     im: [
-      { id: 0, val: require('./images/pexels-photo-260689.jpeg'), info: "Image1" },
-      { id: 1, val: require('./images/pexels-photo-380769.jpeg'), info: "Image2" },
-      { id: 2, val: require('./images/third.jpg'), info: "Image3" },
-      { id: 3, val: require('./images/fourth.jpg'), info: "Image4" }
+      {
+        id: 0,
+        val: require("./images/pexels-photo-260689.jpeg"),
+        info: "Image1"
+      },
+      {
+        id: 1,
+        val: require("./images/pexels-photo-380769.jpeg"),
+        info: "Image2"
+      },
+      { id: 2, val: require("./images/third.jpg"), info: "Image3" },
+      { id: 3, val: require("./images/fourth.jpg"), info: "Image4" }
     ],
     urlf: null,
     btn: null,
-    wc:'Welcome'
+    wc: "Welcome"
   };
   handle = url => {
     if (url) {
       let i = url;
       this.setState({ urlf: i });
       this.setState({ btn: <button>Information</button> });
-      this.setState({wc:null})
+      this.setState({ wc: null });
     } else {
-      this.setState({wc:'Welcome'})
+      this.setState({ wc: "Welcome" });
     }
   };
   handleId = () => {
+    if(this.state.urlf==null){
+        return -1
+    }
     let inf;
     inf = this.state.im.filter(i => this.state.urlf === i.val);
-    console.log(inf)
+    console.log(inf);
     if (inf[0] === undefined) {
       return -1;
     } else {
@@ -39,34 +50,34 @@ class Header extends Component {
       return newTo;
     }
   };
-  handleClass=url=>{
-    let classn
-    if(url!=null){
-      classn = 'box'
-      return classn
+  handleClass = url => {
+    let classn;
+    if (url != null) {
+      classn = "box";
+      return classn;
+    } else {
+      classn = "boxhidden";
+      return classn;
     }
-    else{
-      classn = 'boxhidden'
-      return classn
-    }
-  }
+  };
 
   render() {
-    console.log(this.state)
-    
+    // console.log(this.state);
+
     let att = this.state.urlf;
     let v = this.handleId();
+    // console.log(v)
     let c = this.handleClass(this.state.urlf);
     return (
       <div className="outer">
         <div className="header">
           <span>
-            <div className = 'wc'>{this.state.wc}</div>
-            <img className={c}  src={att} />
+            <div className="wc">{this.state.wc}</div>
+            <img className={c} src={att} />
           </span>
           <Link
             to={{
-              pathname: `/info`,
+              pathname: "/info",
               query: {
                 info: v.inf,
                 url: v.u

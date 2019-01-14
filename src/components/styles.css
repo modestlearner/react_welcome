@@ -26,7 +26,6 @@
   }
   .boxhidden {
     display: none;
-    visibility: hidden;
   }
   .box{
     position: relative;
