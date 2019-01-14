@@ -4,21 +4,12 @@ import "../components/styles.css";
 class Info extends Component {
     handleurl=()=>{
         let u 
-        if(this.props.location.query==undefined){
-            console.log("hello")
-            u = {ur:'',i:'',c:'boxhidden'}
-            return u
-        }
-        else{
-            u={ur:this.props.location.query.url,i:this.props.location.query.info,c:'info container'}
-            // let u = this.props.location.query.url
-            return u
-        }
+        u={ur:localStorage.getItem("urlf"),i:localStorage.getItem("info"),c:'info container'}
+        return u
+
     }
   render() {
-    //   console.log(this.props.location.query)
       let ans = this.handleurl()
-      console.log(ans);
       
     return (
       <div>

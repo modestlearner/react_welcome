@@ -28,6 +28,7 @@ class Header extends Component {
       this.setState({ urlf: i });
       this.setState({ btn: <button>Information</button> });
       this.setState({ wc: null });
+      localStorage.setItem("urlf",i)
     } else {
       this.setState({ wc: "Welcome" });
     }
@@ -47,6 +48,7 @@ class Header extends Component {
         ids: inf[0].id,
         u: this.state.urlf
       };
+      localStorage.setItem("info",inf[0].info)
       return newTo;
     }
   };
@@ -62,11 +64,8 @@ class Header extends Component {
   };
 
   render() {
-    // console.log(this.state);
-
     let att = this.state.urlf;
     let v = this.handleId();
-    // console.log(v)
     let c = this.handleClass(this.state.urlf);
     return (
       <div className="outer">
