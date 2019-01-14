@@ -7,15 +7,16 @@ import Header from "./components/header";
 import { Route, Switch } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import Info from "./components/info";
-import Maps from "./components/info";
+import Maps from "./components/maps";
 
 const r = (
   <Router>
-    <Switch>
+      <div>
       <Route exact path="/" component={Header} />
       <Route path="/info" component={Info} />
-      <Route  exact path="/maps" component ={Maps} />
-    </Switch>
+      <Route  path="/maps" component ={Maps} />
+      </div>
+    
   </Router>
 );
 
