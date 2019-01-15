@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../components/styles.css";
 import Img from "./img";
 import { Link } from "react-router-dom";
+import { Button, Dropdown, NavItem} from "react-materialize";
 class Header extends Component {
   state = {
     im: [
@@ -28,14 +29,14 @@ class Header extends Component {
       this.setState({ urlf: i });
       this.setState({ btn: <button>Information</button> });
       this.setState({ wc: null });
-      localStorage.setItem("urlf",i)
+      localStorage.setItem("urlf", i);
     } else {
       this.setState({ wc: "Welcome" });
     }
   };
   handleId = () => {
-    if(this.state.urlf==null){
-        return -1
+    if (this.state.urlf == null) {
+      return -1;
     }
     let inf;
     inf = this.state.im.filter(i => this.state.urlf === i.val);
@@ -48,7 +49,7 @@ class Header extends Component {
         ids: inf[0].id,
         u: this.state.urlf
       };
-      localStorage.setItem("info",inf[0].info)
+      localStorage.setItem("info", inf[0].info);
       return newTo;
     }
   };
@@ -68,7 +69,6 @@ class Header extends Component {
     let v = this.handleId();
     let c = this.handleClass(this.state.urlf);
     return (
-      
       <div className="outer">
         <div className="header">
           <span>
@@ -95,7 +95,6 @@ class Header extends Component {
           </span>
         </div>
       </div>
-    
     );
   }
 }

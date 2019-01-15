@@ -4,11 +4,12 @@ import "../components/styles.css";
 class Info extends Component {
     handleurl=()=>{
         let u 
-        u={ur:localStorage.getItem("urlf"),i:localStorage.getItem("info"),c:'info container'}
+        u={ur:this.props.location.query.url,i:this.props.location.query.info,c:'info container'}
         return u
 
     }
   render() {
+    console.log(this.props.location)
       let ans = this.handleurl()
       
     return (
