@@ -68,6 +68,7 @@ class Header extends Component {
     let v = this.handleId();
     let c = this.handleClass(this.state.urlf);
     return (
+      
       <div className="outer">
         <div className="header">
           <span>
@@ -94,6 +95,7 @@ class Header extends Component {
           </span>
         </div>
       </div>
+    
     );
   }
 }
